@@ -37,19 +37,25 @@
             this.btnKho = new DevExpress.XtraBars.BarButtonItem();
             this.btnDatHang = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhapVT = new DevExpress.XtraBars.BarButtonItem();
+            this.btnXuatVT = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.statusTrip = new System.Windows.Forms.StatusStrip();
             this.statusMaNV = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusTenNV = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusNhomQuyen = new System.Windows.Forms.ToolStripStatusLabel();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnXuatVT = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnCreateAcc = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusTrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -66,12 +72,16 @@
             this.btnKho,
             this.btnDatHang,
             this.btnNhapVT,
-            this.btnXuatVT});
+            this.btnXuatVT,
+            this.barButtonItem4,
+            this.btnCreateAcc});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 9;
+            this.ribbon.MaxItemId = 11;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
+            this.ribbonPage1,
+            this.ribbonPage2,
+            this.ribbonPage3});
             this.ribbon.Size = new System.Drawing.Size(850, 143);
             // 
             // barButtonItem1
@@ -127,6 +137,15 @@
             this.btnNhapVT.Name = "btnNhapVT";
             this.btnNhapVT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapVT_ItemClick);
             // 
+            // btnXuatVT
+            // 
+            this.btnXuatVT.Caption = "Xuất Vật Tư";
+            this.btnXuatVT.Id = 8;
+            this.btnXuatVT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXuatVT.ImageOptions.Image")));
+            this.btnXuatVT.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXuatVT.ImageOptions.LargeImage")));
+            this.btnXuatVT.Name = "btnXuatVT";
+            this.btnXuatVT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXuatVT_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -164,6 +183,11 @@
             this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapVT);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnXuatVT);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            // 
             // statusTrip
             // 
             this.statusTrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -198,19 +222,44 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
-            // ribbonPageGroup6
+            // barButtonItem4
             // 
-            this.ribbonPageGroup6.ItemLinks.Add(this.btnXuatVT);
-            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 9;
+            this.barButtonItem4.Name = "barButtonItem4";
             // 
-            // btnXuatVT
+            // ribbonPage2
             // 
-            this.btnXuatVT.Caption = "Xuất Vật Tư";
-            this.btnXuatVT.Id = 8;
-            this.btnXuatVT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXuatVT.ImageOptions.Image")));
-            this.btnXuatVT.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXuatVT.ImageOptions.LargeImage")));
-            this.btnXuatVT.Name = "btnXuatVT";
-            this.btnXuatVT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXuatVT_ItemClick);
+            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup7});
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "Tài Khoản";
+            // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.btnCreateAcc);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            // 
+            // btnCreateAcc
+            // 
+            this.btnCreateAcc.Caption = "Tạo Tài Khoản";
+            this.btnCreateAcc.Id = 10;
+            this.btnCreateAcc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateAcc.ImageOptions.Image")));
+            this.btnCreateAcc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCreateAcc.ImageOptions.LargeImage")));
+            this.btnCreateAcc.Name = "btnCreateAcc";
+            this.btnCreateAcc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCreateAcc_ItemClick);
+            // 
+            // ribbonPage3
+            // 
+            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup8});
+            this.ribbonPage3.Name = "ribbonPage3";
+            this.ribbonPage3.Text = "Báo Cáo";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "ribbonPageGroup8";
             // 
             // FormMain
             // 
@@ -257,5 +306,11 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem btnXuatVT;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem btnCreateAcc;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
     }
 }

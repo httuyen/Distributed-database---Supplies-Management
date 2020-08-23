@@ -110,7 +110,18 @@ namespace QLVTPT2020
                 f.MdiParent = this;
                 f.Show();
             }
+        }
 
+        private void btnCreateAcc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FormTaoTaiKhoan));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FormTaoTaiKhoan f = new FormTaoTaiKhoan();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }
