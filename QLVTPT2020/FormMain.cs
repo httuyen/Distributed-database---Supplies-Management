@@ -99,5 +99,18 @@ namespace QLVTPT2020
                 f.Show();
             }
         }
+
+        private void btnXuatVT_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FormXuatVatTu));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FormXuatVatTu f = new FormXuatVatTu();
+                f.MdiParent = this;
+                f.Show();
+            }
+
+        }
     }
 }

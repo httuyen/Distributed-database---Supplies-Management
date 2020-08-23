@@ -93,3 +93,4 @@ D:\QLVTPT2020\QLVTPT2020\obj\Debug\QLVTPT2020.FormNhanVien.resources
 D:\QLVTPT2020\QLVTPT2020\obj\Debug\QLVTPT2020.FormKho.resources
 D:\QLVTPT2020\QLVTPT2020\obj\Debug\QLVTPT2020.FormDonDatHang.resources
 D:\QLVTPT2020\QLVTPT2020\obj\Debug\QLVTPT2020.FormNhapVatTu.resources
+D:\QLVTPT2020\QLVTPT2020\obj\Debug\QLVTPT2020.FormXuatVatTu.resources
