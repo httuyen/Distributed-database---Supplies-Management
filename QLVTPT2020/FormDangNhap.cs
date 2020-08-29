@@ -35,9 +35,9 @@ namespace QLVTPT2020
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text.Trim() == "" || txtPassword.Text.Trim() == "")
+            if (txtUsername.Text.Trim() == "")
             {
-                MessageBox.Show("Login name và mật mã không được trống", "", MessageBoxButtons.OK);
+                MessageBox.Show("Login name không được trống", "", MessageBoxButtons.OK);
                 txtUsername.Focus();
                 return;
             }
@@ -75,7 +75,7 @@ namespace QLVTPT2020
                 Program.myReader.Close();
                 Program.conn.Close();
                 FormMain frmMain = new FormMain();
-                frmMain.statusMaNV .Text = "Mã nhân viên : " + Program.username;
+                frmMain.statusMaNV.Text = "Mã nhân viên : " + Program.username;
                 frmMain.statusTenNV.Text = "Họ và tên : " + Program.mHoten;
                 frmMain.statusNhomQuyen.Text = "Nhóm quyền : " + Program.mGroup;
                 frmMain.Show();

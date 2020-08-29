@@ -28,7 +28,7 @@ namespace QLVTPT2020
         public static String mHoten = "";
         public static String mMACN = "";
         public static int mChinhanh = 0;
-        public static bool isCreating = false;
+        //public static bool isCreating = false;
         public static bool chuyenCN = false;
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
         public static FormDangNhap formDangNhap;

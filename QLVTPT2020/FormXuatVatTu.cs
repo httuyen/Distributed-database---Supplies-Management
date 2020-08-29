@@ -408,17 +408,18 @@ namespace QLVTPT2020
             txtMaVTR.EditValue = cmbMaVT_R.SelectedValue.ToString();
 
             SqlDataReader myReader;
-            string strlenh = "EXEC [dbo].[SP_SOLUONG_DONGIA_CTPX]" +
+            string strlenh = "EXEC [dbo].[SP_SOLUONG_CTPX]" +
                              "@mavt = N'" + txtMaVTR.Text.ToString().Trim() + "'";
             myReader = Program.ExecSqlDataReader(strlenh);
             if (myReader == null) return;
             myReader.Read();
             int soLuong = int.Parse(myReader.GetValue(0).ToString());
-            double dongia = double.Parse(myReader.GetValue(1).ToString());
+            //double dongia = double.Parse(myReader.GetValue(1).ToString());
             myReader.Close();
-            txtDonGiaR.Properties.MinValue = (Decimal)dongia;
+            //txtDonGiaR.Properties.MinValue = (Decimal)dongia;
+            txtDonGiaR.Properties.MinValue = 0;
             txtDonGiaR.Properties.MaxValue = decimal.MaxValue;
-            txtDonGiaR.Text = dongia.ToString();
+            //txtDonGiaR.Text = dongia.ToString();
             txtSLR.Properties.MinValue = 1;
             txtSLR.Properties.MaxValue = soLuong;
         }

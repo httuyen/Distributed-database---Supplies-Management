@@ -364,9 +364,11 @@ namespace QLVTPT2020
 
             if (returnValue == 0)
             {
-                txtTTX.Text = "1";
-                bdsNV.EndEdit();
-                nhanVienTableAdapter.Update(dsQLVT.NhanVien);
+                //txtTTX.Text = "1";
+                //bdsNV.EndEdit();
+                //nhanVienTableAdapter.Update(dsQLVT.NhanVien);
+                dsQLVT.EnforceConstraints = false;
+                this.nhanVienTableAdapter.Fill(this.dsQLVT.NhanVien);
 
                 Program.mlogin = Program.mloginDN;
                 Program.password = Program.passwordDN;

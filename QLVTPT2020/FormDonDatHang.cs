@@ -481,7 +481,7 @@ namespace QLVTPT2020
 
         private void cmbMaVT_R_Click(object sender, EventArgs e)
         {
-            DataTable dt = Program.ExecSqlDataTable("DECLARE @return_value int EXEC @return_value = [dbo].[SP_LAY_MAVT] @msddh = N'" + txtMSDDHR.Text.Trim() + "'");
+            DataTable dt = Program.ExecSqlDataTable("DECLARE @return_value int EXEC @return_value = [dbo].[SP_LAY_MAVT] @MSDDH = N'" + txtMSDDHR.Text.Trim() + "'");
             BindingSource bdsMaVT = new BindingSource();
             bdsMaVT.DataSource = dt;
             //Program.mMACN = ((DataRowView)bdsMaVT[1])["TENVT"].ToString();

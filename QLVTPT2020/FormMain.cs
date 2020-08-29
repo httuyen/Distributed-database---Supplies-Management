@@ -20,7 +20,13 @@ namespace QLVTPT2020
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-
+            if (Program.mGroup == "USER")
+            {
+                btnCreateAcc.Enabled = false;
+            }else
+            {
+                btnCreateAcc.Enabled = true;
+            }
         }
 
         private Form CheckExists(Type ftype)
