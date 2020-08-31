@@ -133,7 +133,7 @@ namespace QLVTPT2020
             txtMaNV.Text = maNV.ToString();
             txtTTX.Text = "0";
             txtTTX.Enabled = false;
-
+            txtNgaySinh.Properties.MaxValue = DateTime.Now;
             gridNV.Enabled = false;
             txtHo.Focus();
         }
@@ -185,22 +185,28 @@ namespace QLVTPT2020
                     }
                     else return;
                 }
-                if (MessageBox.Show("Xóa NV ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (txtTTX.Text.ToString().Equals("1"))
+                {
+                    MessageBox.Show("Không thể chuyển vì nhân viên không còn làm ở chi nhánh");
+                    return;
+                }
+                if (MessageBox.Show("Bạn có chắc muốn xóa nhân viên?", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {
                         bdsNV.RemoveCurrent();
                         this.nhanVienTableAdapter.Update(this.dsQLVT.NhanVien);
+                        MessageBox.Show("Xóa thành công!", "Notification", MessageBoxButtons.OK);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi xóa nhân viên\n" + ex.Message, "", MessageBoxButtons.OK);
+                        MessageBox.Show("Lỗi xóa nhân viên\n" + ex.Message, "Notification", MessageBoxButtons.OK);
                     }
                 }
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Lỗi xóa nhân viên\n" + exc.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi xóa nhân viên\n" + exc.Message, "Notification", MessageBoxButtons.OK);
             }
         }
 
@@ -244,14 +250,14 @@ namespace QLVTPT2020
                         btnAdd.Enabled = btnEdit.Enabled = btnDelete.Enabled = btnCCN.Enabled = btnRefresh.Enabled = btnExit.Enabled = grCN.Enabled = gridNV.Enabled = true;
                         this.nhanVienTableAdapter.Update(this.dsQLVT.NhanVien);
                         this.nhanVienTableAdapter.Fill(this.dsQLVT.NhanVien);
-                        MessageBox.Show("Thêm nhân viên thành công!", "", MessageBoxButtons.OK);
+                        MessageBox.Show("Thêm nhân viên thành công!", "Notification", MessageBoxButtons.OK);
                         txtMaNV.Enabled = false;
                         isCreating = false;
                         gridNV.Focus();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Lỗi ghi nhân viên\n" + ex.Message, "", MessageBoxButtons.OK);
+                        MessageBox.Show("Lỗi ghi nhân viên\n" + ex.Message, "Notification", MessageBoxButtons.OK);
                     }
                 }
             }
@@ -266,11 +272,11 @@ namespace QLVTPT2020
                     btnSave.Enabled = btnUndo.Enabled = grEdit.Enabled = false;
                     this.nhanVienTableAdapter.Update(this.dsQLVT.NhanVien);
                     this.nhanVienTableAdapter.Fill(this.dsQLVT.NhanVien);
-                    MessageBox.Show("Cập nhật nhân viên thành công!", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Cập nhật nhân viên thành công!", "Notification", MessageBoxButtons.OK);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi ghi nhân viên\n" + ex.Message, "", MessageBoxButtons.OK);
+                    MessageBox.Show("Lỗi ghi nhân viên\n" + ex.Message, "Notification", MessageBoxButtons.OK);
                 }
             }
         }
@@ -344,15 +350,15 @@ namespace QLVTPT2020
             Program.password = Program.remotepassword;
             Program.servername = dic.FirstOrDefault(x => x.Value == cmbCCN.SelectedItem.ToString()).Key;
             Program.KetNoi();
-
-            string lenh = "DECLARE	@return_value int EXEC @return_value = [dbo].[SP_CHUYEN_CHI_NHANH] " +
+            string lenh = "DECLARE @return_value int EXEC @return_value = [dbo].[SP_CHUYEN_CHI_NHANH] " +
+                        "@MANV = N'" + txtMaNV.Text.Trim() + "'," +
                         "@HO = N'" + txtHo.Text.Trim() + "'," +
                         "@TEN = N'" + txtTen.Text.Trim() + "'," +
                         "@DIACHI = N'" + txtDiaChi.Text.Trim() + "'," +
-                        "@NGAYSINH = N'" + txtNgaySinh.Text.Trim() + "'," +
+                        "@NGAYSINH = '" + txtNgaySinh.Text.Trim() + "'," +
                         "@LUONG = " + txtLuong.Text.Trim() + "," +
-                        "@MACN = N'" + maCNMoi + "'" +
-                        "SELECT  'Return Value' = @return_value";
+                        "@MACN = '" + maCNMoi.Trim() + "'" +
+                        " SELECT  'Return Value' = @return_value";
 
             SqlDataReader myReader = Program.ExecSqlDataReader(lenh);
 
@@ -364,11 +370,11 @@ namespace QLVTPT2020
 
             if (returnValue == 0)
             {
-                //txtTTX.Text = "1";
-                //bdsNV.EndEdit();
-                //nhanVienTableAdapter.Update(dsQLVT.NhanVien);
-                dsQLVT.EnforceConstraints = false;
-                this.nhanVienTableAdapter.Fill(this.dsQLVT.NhanVien);
+                txtTTX.Text = "1";
+                bdsNV.EndEdit();
+                nhanVienTableAdapter.Update(dsQLVT.NhanVien);
+                //dsQLVT.EnforceConstraints = false;
+                //this.nhanVienTableAdapter.Fill(this.dsQLVT.NhanVien);
 
                 Program.mlogin = Program.mloginDN;
                 Program.password = Program.passwordDN;
@@ -427,6 +433,13 @@ namespace QLVTPT2020
             {
                 e.Handled = true;
             }
+        }
+
+        private void FormNhanVien_Leave(object sender, EventArgs e)
+        {
+            Program.servername = Program.serverNameDN;
+            Program.mlogin = Program.mloginDN;
+            Program.password = Program.passwordDN;
         }
     }
 }

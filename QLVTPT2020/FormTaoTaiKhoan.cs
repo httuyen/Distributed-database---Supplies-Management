@@ -14,6 +14,7 @@ namespace QLVTPT2020
 {
     public partial class FormTaoTaiKhoan : DevExpress.XtraEditors.XtraForm
     {
+        private static DataTable dtMaNV;
         public FormTaoTaiKhoan()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace QLVTPT2020
             //cmbNQ.DisplayMember = "name";
             //cmbNQ.ValueMember = "name";
 
-            DataTable dtMaNV = new DataTable();
+            dtMaNV = new DataTable();
             dtMaNV = Program.ExecSqlDataTable("SELECT * FROM V_DSNVCHUACOLOGIN");
             //BindingSource bdsRole = new BindingSource();
             cmbMaNV.DataSource = dtMaNV;
@@ -118,6 +119,15 @@ namespace QLVTPT2020
                     MessageBox.Show("Tạo thành công");
                     txtUserName.Text = txtPassword.Text = txtCFPass.Text = "";
                     cmbMaNV.SelectedIndex = cmbNQ.SelectedIndex = -1;
+
+                    dtMaNV = new DataTable();
+                    dtMaNV = Program.ExecSqlDataTable("SELECT * FROM V_DSNVCHUACOLOGIN");
+                    //BindingSource bdsRole = new BindingSource();
+                    cmbMaNV.DataSource = dtMaNV;
+                    cmbMaNV.DisplayMember = "NAME";
+                    cmbMaNV.ValueMember = "MANV";
+                    cmbMaNV.SelectedIndex = -1;
+                    cmbNQ.SelectedIndex = -1;
                     //this.v_DSNVCHUACOLOGINTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DSNVCHUACOLOGIN);
                 }
             }

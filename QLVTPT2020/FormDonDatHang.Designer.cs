@@ -144,81 +144,81 @@
             masoDDHLabel.AutoSize = true;
             masoDDHLabel.Location = new System.Drawing.Point(27, 27);
             masoDDHLabel.Name = "masoDDHLabel";
-            masoDDHLabel.Size = new System.Drawing.Size(60, 13);
+            masoDDHLabel.Size = new System.Drawing.Size(108, 13);
             masoDDHLabel.TabIndex = 0;
-            masoDDHLabel.Text = "Maso DDH:";
+            masoDDHLabel.Text = "Mã Số Đơn Đặt Hàng";
             // 
             // nGAYLabel
             // 
             nGAYLabel.AutoSize = true;
-            nGAYLabel.Location = new System.Drawing.Point(49, 60);
+            nGAYLabel.Location = new System.Drawing.Point(103, 60);
             nGAYLabel.Name = "nGAYLabel";
-            nGAYLabel.Size = new System.Drawing.Size(38, 13);
+            nGAYLabel.Size = new System.Drawing.Size(32, 13);
             nGAYLabel.TabIndex = 2;
-            nGAYLabel.Text = "NGAY:";
+            nGAYLabel.Text = "Ngày";
             // 
             // nhaCCLabel
             // 
             nhaCCLabel.AutoSize = true;
-            nhaCCLabel.Location = new System.Drawing.Point(40, 91);
+            nhaCCLabel.Location = new System.Drawing.Point(59, 91);
             nhaCCLabel.Name = "nhaCCLabel";
-            nhaCCLabel.Size = new System.Drawing.Size(47, 13);
+            nhaCCLabel.Size = new System.Drawing.Size(76, 13);
             nhaCCLabel.TabIndex = 4;
-            nhaCCLabel.Text = "Nha CC:";
+            nhaCCLabel.Text = "Nhà Cung Cấp";
             // 
             // mANVLabel
             // 
             mANVLabel.AutoSize = true;
-            mANVLabel.Location = new System.Drawing.Point(48, 124);
+            mANVLabel.Location = new System.Drawing.Point(63, 124);
             mANVLabel.Name = "mANVLabel";
-            mANVLabel.Size = new System.Drawing.Size(39, 13);
+            mANVLabel.Size = new System.Drawing.Size(72, 13);
             mANVLabel.TabIndex = 6;
-            mANVLabel.Text = "MANV:";
+            mANVLabel.Text = "Mã Nhân Viên";
             // 
             // mAKHOLabel
             // 
             mAKHOLabel.AutoSize = true;
-            mAKHOLabel.Location = new System.Drawing.Point(40, 161);
+            mAKHOLabel.Location = new System.Drawing.Point(93, 161);
             mAKHOLabel.Name = "mAKHOLabel";
-            mAKHOLabel.Size = new System.Drawing.Size(47, 13);
+            mAKHOLabel.Size = new System.Drawing.Size(42, 13);
             mAKHOLabel.TabIndex = 8;
-            mAKHOLabel.Text = "MAKHO:";
+            mAKHOLabel.Text = "Mã Kho";
             // 
             // masoDDHLabel1
             // 
             masoDDHLabel1.AutoSize = true;
-            masoDDHLabel1.Location = new System.Drawing.Point(23, 27);
+            masoDDHLabel1.Location = new System.Drawing.Point(6, 27);
             masoDDHLabel1.Name = "masoDDHLabel1";
-            masoDDHLabel1.Size = new System.Drawing.Size(60, 13);
+            masoDDHLabel1.Size = new System.Drawing.Size(108, 13);
             masoDDHLabel1.TabIndex = 0;
-            masoDDHLabel1.Text = "Maso DDH:";
+            masoDDHLabel1.Text = "Mã Số Đơn Đặt Hàng";
             // 
             // mAVTLabel
             // 
             mAVTLabel.AutoSize = true;
-            mAVTLabel.Location = new System.Drawing.Point(45, 60);
+            mAVTLabel.Location = new System.Drawing.Point(58, 60);
             mAVTLabel.Name = "mAVTLabel";
-            mAVTLabel.Size = new System.Drawing.Size(38, 13);
+            mAVTLabel.Size = new System.Drawing.Size(56, 13);
             mAVTLabel.TabIndex = 2;
-            mAVTLabel.Text = "MAVT:";
+            mAVTLabel.Text = "Mã Vật Tư";
             // 
             // sOLUONGLabel
             // 
             sOLUONGLabel.AutoSize = true;
-            sOLUONGLabel.Location = new System.Drawing.Point(24, 95);
+            sOLUONGLabel.Location = new System.Drawing.Point(62, 95);
             sOLUONGLabel.Name = "sOLUONGLabel";
-            sOLUONGLabel.Size = new System.Drawing.Size(59, 13);
+            sOLUONGLabel.Size = new System.Drawing.Size(52, 13);
             sOLUONGLabel.TabIndex = 4;
-            sOLUONGLabel.Text = "SOLUONG:";
+            sOLUONGLabel.Text = "Số Lượng";
             // 
             // dONGIALabel
             // 
             dONGIALabel.AutoSize = true;
-            dONGIALabel.Location = new System.Drawing.Point(32, 128);
+            dONGIALabel.Location = new System.Drawing.Point(69, 128);
             dONGIALabel.Name = "dONGIALabel";
-            dONGIALabel.Size = new System.Drawing.Size(51, 13);
+            dONGIALabel.Size = new System.Drawing.Size(45, 13);
             dONGIALabel.TabIndex = 6;
-            dONGIALabel.Text = "DONGIA:";
+            dONGIALabel.Text = "Đơn Giá";
             // 
             // grCN
             // 
@@ -310,6 +310,7 @@
             this.gridView2.GridControl = this.gridCTDDH;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.Editable = false;
+            this.gridView2.OptionsNavigation.AutoFocusNewRow = true;
             // 
             // colMasoDDH1
             // 
@@ -510,6 +511,7 @@
             this.gridView1.GridControl = this.gridDH;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsNavigation.AutoFocusNewRow = true;
             // 
             // colMasoDDH
             // 
@@ -568,7 +570,7 @@
             // txtMaKho
             // 
             this.txtMaKho.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDH, "MAKHO", true));
-            this.txtMaKho.Location = new System.Drawing.Point(93, 158);
+            this.txtMaKho.Location = new System.Drawing.Point(141, 158);
             this.txtMaKho.MenuManager = this.barEditDDH;
             this.txtMaKho.Name = "txtMaKho";
             this.txtMaKho.Size = new System.Drawing.Size(100, 20);
@@ -582,7 +584,7 @@
             0,
             0,
             0});
-            this.txtMaNV.Location = new System.Drawing.Point(93, 121);
+            this.txtMaNV.Location = new System.Drawing.Point(141, 121);
             this.txtMaNV.MenuManager = this.barEditDDH;
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -593,7 +595,7 @@
             // txtNCC
             // 
             this.txtNCC.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDH, "NhaCC", true));
-            this.txtNCC.Location = new System.Drawing.Point(93, 88);
+            this.txtNCC.Location = new System.Drawing.Point(141, 88);
             this.txtNCC.MenuManager = this.barEditDDH;
             this.txtNCC.Name = "txtNCC";
             this.txtNCC.Size = new System.Drawing.Size(100, 20);
@@ -603,7 +605,7 @@
             // 
             this.txtNgay.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDH, "NGAY", true));
             this.txtNgay.EditValue = null;
-            this.txtNgay.Location = new System.Drawing.Point(93, 57);
+            this.txtNgay.Location = new System.Drawing.Point(141, 57);
             this.txtNgay.MenuManager = this.barEditDDH;
             this.txtNgay.Name = "txtNgay";
             this.txtNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -616,7 +618,7 @@
             // txtMSDDH
             // 
             this.txtMSDDH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDH, "MasoDDH", true));
-            this.txtMSDDH.Location = new System.Drawing.Point(93, 24);
+            this.txtMSDDH.Location = new System.Drawing.Point(141, 24);
             this.txtMSDDH.MenuManager = this.barEditDDH;
             this.txtMSDDH.Name = "txtMSDDH";
             this.txtMSDDH.Size = new System.Drawing.Size(100, 20);
@@ -644,7 +646,7 @@
             // 
             this.cmbMaVT_R.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMaVT_R.FormattingEnabled = true;
-            this.cmbMaVT_R.Location = new System.Drawing.Point(195, 57);
+            this.cmbMaVT_R.Location = new System.Drawing.Point(226, 57);
             this.cmbMaVT_R.Name = "cmbMaVT_R";
             this.cmbMaVT_R.Size = new System.Drawing.Size(164, 21);
             this.cmbMaVT_R.TabIndex = 11;
@@ -659,7 +661,7 @@
             0,
             0,
             0});
-            this.txtDonGia.Location = new System.Drawing.Point(89, 125);
+            this.txtDonGia.Location = new System.Drawing.Point(120, 125);
             this.txtDonGia.MenuManager = this.barEditDDH;
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -676,7 +678,7 @@
             0,
             0,
             0});
-            this.txtSL.Location = new System.Drawing.Point(89, 92);
+            this.txtSL.Location = new System.Drawing.Point(120, 92);
             this.txtSL.MenuManager = this.barEditDDH;
             this.txtSL.Name = "txtSL";
             this.txtSL.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -688,7 +690,7 @@
             // txtMaVT
             // 
             this.txtMaVT.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTDDH, "MAVT", true));
-            this.txtMaVT.Location = new System.Drawing.Point(89, 57);
+            this.txtMaVT.Location = new System.Drawing.Point(120, 57);
             this.txtMaVT.MenuManager = this.barEditDDH;
             this.txtMaVT.Name = "txtMaVT";
             this.txtMaVT.Size = new System.Drawing.Size(100, 20);
@@ -697,7 +699,7 @@
             // txtMSDDHR
             // 
             this.txtMSDDHR.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTDDH, "MasoDDH", true));
-            this.txtMSDDHR.Location = new System.Drawing.Point(89, 24);
+            this.txtMSDDHR.Location = new System.Drawing.Point(120, 24);
             this.txtMSDDHR.MenuManager = this.barEditDDH;
             this.txtMSDDHR.Name = "txtMSDDHR";
             this.txtMSDDHR.Size = new System.Drawing.Size(100, 20);
@@ -875,6 +877,7 @@
             this.Name = "FormDonDatHang";
             this.Text = "Đơn Đặt Hàng";
             this.Load += new System.EventHandler(this.FormDonDatHang_Load);
+            this.Leave += new System.EventHandler(this.FormDonDatHang_Leave);
             this.grCN.ResumeLayout(false);
             this.grCN.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

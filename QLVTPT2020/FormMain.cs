@@ -22,10 +22,15 @@ namespace QLVTPT2020
         {
             if (Program.mGroup == "USER")
             {
-                btnCreateAcc.Enabled = false;
-            }else
+                //btnCreateAcc.Enabled = false;
+                ribbonPage2.Visible = false;
+                ribbonPage3.Visible = false;
+            }
+            else
             {
-                btnCreateAcc.Enabled = true;
+                //btnCreateAcc.Enabled = true;
+                ribbonPage2.Visible = true;
+                ribbonPage3.Visible = true;
             }
         }
 
@@ -67,6 +72,7 @@ namespace QLVTPT2020
 
         private void FormMain_FormClosing_1(object sender, FormClosingEventArgs e)
         {
+            Program.servername = Program.serverNameDN;
             Program.formDangNhap.Show();
         }
 
@@ -125,6 +131,54 @@ namespace QLVTPT2020
             else
             {
                 FormTaoTaiKhoan f = new FormTaoTaiKhoan();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnInNV_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FormInDSNV));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FormInDSNV f = new FormInDSNV();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnInVT_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FormInVT));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FormInVT f = new FormInVT();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnInDSDH_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FormInDH));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FormInDH f = new FormInDH();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnInBangKe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FormInBangKeNX));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FormInBangKeNX f = new FormInBangKeNX();
                 f.MdiParent = this;
                 f.Show();
             }

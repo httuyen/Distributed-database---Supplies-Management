@@ -72,7 +72,9 @@ namespace QLVTPT2020
             {
                 btnDeleteL.Enabled = false;
             }
-
+            txtNgayL.Enabled = false;
+            txtMaNVL.Enabled = false;
+            cmbMaVT_R.Enabled = false;
             //if (bdsCTPN.Count > 0)
             //{
             //    btnDeleteR.Enabled = true;
@@ -146,6 +148,7 @@ namespace QLVTPT2020
 
             txtMaPNL.Enabled = true;
             txtMaNVL.Text = Program.username;
+            txtNgayL.Text = DateTime.Now.ToShortDateString();
             txtMaPNL.Focus();
         }
 
@@ -342,6 +345,7 @@ namespace QLVTPT2020
                     btnAddR.Enabled = btnRefreshR.Enabled = btnExitR.Enabled = grCN.Enabled = gridPN.Enabled = true;
                     standAloneL.Enabled = gridCTPN.Enabled = true;
                     MessageBox.Show("Thêm chi tiết phiếu nhập thành công!", "", MessageBoxButtons.OK);
+                    cmbMaVT_R.SelectedIndex = -1;
                     Program.soLuong = 0;
                     isCreating = false;
                     cmbMaVT_R.Enabled = btnSaveR.Enabled = txtSLR.Enabled = false;
@@ -483,6 +487,13 @@ namespace QLVTPT2020
             {
                 txtMSDDHL.EditValue = "";
             }
+        }
+
+        private void FormNhapVatTu_Leave(object sender, EventArgs e)
+        {
+            Program.servername = Program.serverNameDN;
+            Program.mlogin = Program.mloginDN;
+            Program.password = Program.passwordDN;
         }
     }
 }

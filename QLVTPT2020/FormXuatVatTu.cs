@@ -62,6 +62,7 @@ namespace QLVTPT2020
             cmbMaVT_R.Enabled = btnSaveR.Enabled = false;
             txtMaPXL.Enabled = txtMaPXR.Enabled = txtMaNVL.Enabled = txtMaVTR.Enabled = false;
             txtDonGiaR.Properties.MinValue = txtSLR.Properties.MinValue = 0;
+            txtNgayL.Enabled = false;
         }
 
         private void cmbCN_SelectedIndexChanged(object sender, EventArgs e)
@@ -114,6 +115,7 @@ namespace QLVTPT2020
 
             txtMaPXL.Enabled = true;
             txtMaNVL.Text = Program.username;
+            txtNgayL.Text = DateTime.Now.ToShortDateString();
             txtMaPXL.Focus();
         }
 
@@ -435,6 +437,13 @@ namespace QLVTPT2020
                 MessageBox.Show("chỉ bao gồm chữ cái và số!");
                 e.Handled = true;
             }
+        }
+
+        private void FormXuatVatTu_Leave(object sender, EventArgs e)
+        {
+            Program.servername = Program.serverNameDN;
+            Program.mlogin = Program.mloginDN;
+            Program.password = Program.passwordDN;
         }
     }
 }

@@ -64,16 +64,18 @@ namespace QLVTPT2020
             }
 
             txtMaVT.Enabled = false;
-            txtMSDDH.Enabled = false;
+            txtMSDDH.Enabled = txtMSDDHR.Enabled = false;
             btnSaveL.Enabled = btnUndoL.Enabled = btnSaveR.Enabled = btnUndoR.Enabled = false;
             grEditDDH.Enabled = grEditCTDDH.Enabled = false;
-
+            btnEditL.Enabled = btnDeleteL.Enabled = false;
 
             this.txtDonGia.Properties.MinValue = 0;
             this.txtDonGia.Properties.MaxValue = Decimal.MaxValue;
 
             this.txtSL.Properties.MinValue = 0;
             this.txtSL.Properties.MaxValue = Decimal.MaxValue;
+            txtNgay.Enabled = false;
+            gridDH.Focus();
         }
 
         private void cmbCN_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,7 +121,7 @@ namespace QLVTPT2020
             bdsDH.AddNew();
             btnAddL.Enabled = btnEditL.Enabled = btnDeleteL.Enabled = btnRefreshL.Enabled = btnExitL.Enabled = grCN.Enabled = false;
             btnSaveL.Enabled = btnUndoL.Enabled = grEditDDH.Enabled = true;
-
+           
             //disable ctddh
             standAloneR.Enabled = gridCTDDH.Enabled = grEditCTDDH.Enabled = gridDH.Enabled = false;
 
@@ -127,6 +129,7 @@ namespace QLVTPT2020
             gridDH.Enabled = false;
             gridCTDDH.Enabled = false;
             txtMaNV.Text = Program.username;
+            txtNgay.Text = DateTime.Now.ToShortDateString();
             txtMSDDH.Enabled = true;
             txtMSDDH.Focus();
         }
@@ -136,6 +139,7 @@ namespace QLVTPT2020
             btnAddL.Enabled = btnEditL.Enabled = btnDeleteL.Enabled = btnRefreshL.Enabled = btnExitL.Enabled = false;
             standAloneR.Enabled = grEditCTDDH.Enabled = gridCTDDH.Enabled = false;
             btnSaveL.Enabled = btnUndoL.Enabled = true;
+            txtNgay.Enabled = false;
             grEditDDH.Enabled = true;
         }
 
@@ -155,6 +159,7 @@ namespace QLVTPT2020
                         bdsDH.RemoveCurrent();
                         this.datHangTableAdapter.Update(this.dsQLVT.DatHang);
                         MessageBox.Show("Xóa đơn đặt hàng thành công!");
+                        btnEditL.Enabled = btnDeleteL.Enabled = false;
                     }
                     catch (Exception ex)
                     {
@@ -172,7 +177,6 @@ namespace QLVTPT2020
         {
             if (isCreating)
             {
-
                 if (txtMSDDH.Text.Trim().Equals(""))
                 {
                     MessageBox.Show("Mã đơn hàng không được để trống");
@@ -210,7 +214,30 @@ namespace QLVTPT2020
                     txtNCC.Focus();
                     return;
                 }
+                if (txtMaKho.Text.Trim().Equals(""))
+                {
+                    MessageBox.Show("Mã kho không được để trống");
+                    txtNCC.Focus();
+                    return;
+                }
+                else
+                {
+                    SqlDataReader myReader;
+                    String strlenh = "DECLARE @return_value int EXEC @return_value = [dbo].[SP_CHECK_MA_KHO] @MAKHO = N'" + txtMaKho.Text.Trim() + "' "
+                        + "SELECT  'Return Value' = @return_value";
+                    myReader = Program.ExecSqlDataReader(strlenh);
+                    if (myReader == null) return;
+                    myReader.Read();
+                    int value = myReader.GetInt32(0);
+                    myReader.Close();
 
+                    if (!value.Equals(1))
+                    {
+                        MessageBox.Show("Mã kho không tồn tại!!!\nVui lòng nhập lại!!!");
+                        txtMaKho.Focus();
+                        return;
+                    }
+                }
                 try
                 {
                     bdsDH.EndEdit();
@@ -218,15 +245,15 @@ namespace QLVTPT2020
                     this.datHangTableAdapter.Update(this.dsQLVT.DatHang);
                     this.datHangTableAdapter.Fill(this.dsQLVT.DatHang);
 
-
                     btnAddL.Enabled = btnEditL.Enabled = btnDeleteL.Enabled = btnRefreshL.Enabled = btnExitL.Enabled = grCN.Enabled = gridDH.Enabled = true;
                     btnSaveL.Enabled = btnUndoL.Enabled = false;
                     standAloneR.Enabled = gridCTDDH.Enabled = grEditCTDDH.Enabled = true;
                     MessageBox.Show("Thêm đơn thành công!", "", MessageBoxButtons.OK);
-
+                    txtNgay.Enabled = false;
                     txtMSDDH.Enabled = false;
                     isCreating = false;
-                    txtMSDDH.Focus();
+                    //txtMSDDH.Focus();
+                    //btnAddR.PerformClick();
                 }
                 catch (Exception ex)
                 {
@@ -235,15 +262,48 @@ namespace QLVTPT2020
             }
             else
             {
+                if (txtNCC.Text.Trim().Equals(""))
+                {
+                    MessageBox.Show("Nhà cung cấp không được để trống");
+                    txtNCC.Focus();
+                    return;
+                }
+                if (txtMaKho.Text.Trim().Equals(""))
+                {
+                    MessageBox.Show("Mã kho không được để trống");
+                    txtNCC.Focus();
+                    return;
+                }
+                else
+                {
+                    SqlDataReader myReader;
+                    String strlenh = "DECLARE @return_value int EXEC @return_value = [dbo].[SP_CHECK_MA_KHO] @MAKHO = N'" + txtMaKho.Text.Trim() + "' "
+                        + "SELECT  'Return Value' = @return_value";
+                    myReader = Program.ExecSqlDataReader(strlenh);
+                    if (myReader == null) return;
+                    myReader.Read();
+                    int value = myReader.GetInt32(0);
+                    myReader.Close();
+
+                    if (!value.Equals(1))
+                    {
+                        MessageBox.Show("Mã kho không tồn tại!!!\nVui lòng nhập lại!!!");
+                        txtMaKho.Focus();
+                        return;
+                    }
+                }
                 try
                 {
                     bdsDH.EndEdit();
                     bdsDH.ResetCurrentItem();
                     btnSaveL.Enabled = btnUndoL.Enabled = false;
+                    standAloneR.Enabled = gridCTDDH.Enabled = true;
                     btnAddL.Enabled = btnEditL.Enabled = btnDeleteL.Enabled = btnRefreshL.Enabled = btnExitL.Enabled = grCN.Enabled = gridDH.Enabled = true;
+                    grEditDDH.Enabled = false;
                     this.datHangTableAdapter.Update(this.dsQLVT.DatHang);
                     this.datHangTableAdapter.Fill(this.dsQLVT.DatHang);
                     MessageBox.Show("Cập nhật kho thành công!", "", MessageBoxButtons.OK);
+                    txtNgay.Enabled = false;
                     txtMSDDH.Focus();
                 }
                 catch (Exception ex)
@@ -255,7 +315,7 @@ namespace QLVTPT2020
 
         private void btnUndoL_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            btnAddL.Enabled = btnEditL.Enabled = btnDeleteL.Enabled = btnRefreshL.Enabled = btnExitL.Enabled = grCN.Enabled = gridDH.Enabled = true;
+            btnAddL.Enabled = btnRefreshL.Enabled = btnExitL.Enabled = grCN.Enabled = gridDH.Enabled = true;
             btnSaveL.Enabled = btnUndoL.Enabled = grEditDDH.Enabled = false;
             standAloneR.Enabled = gridCTDDH.Enabled = grEditCTDDH.Enabled = true;
             txtMSDDH.Enabled = false;
@@ -302,9 +362,8 @@ namespace QLVTPT2020
             {
                 SqlDataReader myReader;
                 String strlenh = "DECLARE @return_value int EXEC @return_value = [dbo].[SP_CHECK_XOACTDDH] " +
-                    "@MADDH = N'" + txtMSDDHR.Text.ToString().Trim() + "', " +
-                    "@MAVT = N'" + txtMaVT.Text.ToString().Trim() + "' " +
-                    "SELECT 'Return Value' = @return_value";
+                    "@MSDDH = N'" + txtMSDDHR.Text.ToString().Trim() + "'" +
+                    " SELECT 'Return Value' = @return_value";
                 myReader = Program.ExecSqlDataReader(strlenh);
                 if (myReader == null) return;
                 myReader.Read();
@@ -357,7 +416,7 @@ namespace QLVTPT2020
                     bdsCTDDH.ResetCurrentItem();
                     this.cTDDHTableAdapter.Update(this.dsQLVT.CTDDH);
                     this.cTDDHTableAdapter.Fill(this.dsQLVT.CTDDH);
-                    btnAddR.Enabled = btnDeleteR.Enabled = btnRefreshR.Enabled = btnExitR.Enabled = grCN.Enabled = gridCTDDH.Enabled = true;
+                    btnAddR.Enabled  = btnRefreshR.Enabled = btnExitR.Enabled = grCN.Enabled = gridCTDDH.Enabled = true;
                     standaloneL.Enabled = gridDH.Enabled = true;
                     grEditCTDDH.Enabled = btnSaveR.Enabled = btnUndoR.Enabled = false;
                     cmbMaVT_R.SelectedIndex = -1;
@@ -393,7 +452,7 @@ namespace QLVTPT2020
 
         private void btnUndoR_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            btnAddR.Enabled = btnDeleteR.Enabled = btnRefreshR.Enabled = btnExitR.Enabled = grCN.Enabled = gridCTDDH.Enabled = true;
+            btnAddR.Enabled = btnRefreshR.Enabled = btnExitR.Enabled = grCN.Enabled = gridCTDDH.Enabled = true;
             standaloneL.Enabled = gridDH.Enabled = true;
             grEditCTDDH.Enabled = btnSaveR.Enabled = btnUndoR.Enabled = false;
             if (isCreating)
@@ -514,6 +573,13 @@ namespace QLVTPT2020
             {
                 return;
             }
+        }
+
+        private void FormDonDatHang_Leave(object sender, EventArgs e)
+        {
+            Program.servername = Program.serverNameDN;
+            Program.mlogin = Program.mloginDN;
+            Program.password = Program.passwordDN;
         }
     }
 }

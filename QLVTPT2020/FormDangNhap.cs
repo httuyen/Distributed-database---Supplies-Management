@@ -54,7 +54,7 @@ namespace QLVTPT2020
                 if (Program.KetNoi() == 0) return;
 
                 Program.mChinhanh = cmbChiNhanh.SelectedIndex;
-
+                Program.serverNameDN = cmbChiNhanh.SelectedValue.ToString();
                 Program.mloginDN = Program.mlogin;
                 Program.passwordDN = Program.password;
                 string strLenh = "EXEC SP_DANGNHAP '" + Program.mlogin + "'";
@@ -91,6 +91,11 @@ namespace QLVTPT2020
 
             }
             catch (Exception) { };
+        }
+
+        private void FormDangNhap_Enter(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnLogin;
         }
     }
 }

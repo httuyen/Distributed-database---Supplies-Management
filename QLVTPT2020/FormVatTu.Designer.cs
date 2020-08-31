@@ -92,38 +92,38 @@
             // mAVTLabel
             // 
             mAVTLabel.AutoSize = true;
-            mAVTLabel.Location = new System.Drawing.Point(47, 32);
+            mAVTLabel.Location = new System.Drawing.Point(26, 32);
             mAVTLabel.Name = "mAVTLabel";
-            mAVTLabel.Size = new System.Drawing.Size(38, 13);
+            mAVTLabel.Size = new System.Drawing.Size(56, 13);
             mAVTLabel.TabIndex = 0;
-            mAVTLabel.Text = "MAVT:";
+            mAVTLabel.Text = "Mã Vật Tư";
             // 
             // tENVTLabel
             // 
             tENVTLabel.AutoSize = true;
-            tENVTLabel.Location = new System.Drawing.Point(43, 58);
+            tENVTLabel.Location = new System.Drawing.Point(22, 58);
             tENVTLabel.Name = "tENVTLabel";
-            tENVTLabel.Size = new System.Drawing.Size(42, 13);
+            tENVTLabel.Size = new System.Drawing.Size(60, 13);
             tENVTLabel.TabIndex = 2;
-            tENVTLabel.Text = "TENVT:";
+            tENVTLabel.Text = "Tên Vật Tư";
             // 
             // dVTLabel
             // 
             dVTLabel.AutoSize = true;
-            dVTLabel.Location = new System.Drawing.Point(55, 84);
+            dVTLabel.Location = new System.Drawing.Point(21, 84);
             dVTLabel.Name = "dVTLabel";
-            dVTLabel.Size = new System.Drawing.Size(30, 13);
+            dVTLabel.Size = new System.Drawing.Size(61, 13);
             dVTLabel.TabIndex = 4;
-            dVTLabel.Text = "DVT:";
+            dVTLabel.Text = "Đơn Vị Tính";
             // 
             // sOLUONGTONLabel
             // 
             sOLUONGTONLabel.AutoSize = true;
-            sOLUONGTONLabel.Location = new System.Drawing.Point(5, 110);
+            sOLUONGTONLabel.Location = new System.Drawing.Point(9, 110);
             sOLUONGTONLabel.Name = "sOLUONGTONLabel";
-            sOLUONGTONLabel.Size = new System.Drawing.Size(80, 13);
+            sOLUONGTONLabel.Size = new System.Drawing.Size(73, 13);
             sOLUONGTONLabel.TabIndex = 6;
-            sOLUONGTONLabel.Text = "SOLUONGTON:";
+            sOLUONGTONLabel.Text = "Số Lượng Tồn";
             // 
             // tableLayoutPanel1
             // 
@@ -174,6 +174,7 @@
             this.gridView1.GridControl = this.gridVatTu;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsNavigation.AutoFocusNewRow = true;
             // 
             // colMAVT
             // 
@@ -244,7 +245,7 @@
             // 
             this.btnAdd.Caption = "Thêm";
             this.btnAdd.Id = 0;
-            this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
             // 
@@ -252,7 +253,7 @@
             // 
             this.btnEdit.Caption = "Sửa";
             this.btnEdit.Id = 2;
-            this.btnEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
+            this.btnEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.ImageOptions.Image")));
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEdit_ItemClick);
             // 
@@ -260,7 +261,7 @@
             // 
             this.btnDelete.Caption = "Xóa";
             this.btnDelete.Id = 1;
-            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
             // 
@@ -268,7 +269,7 @@
             // 
             this.btnSave.Caption = "Ghi";
             this.btnSave.Id = 3;
-            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
             this.btnSave.Name = "btnSave";
             this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
             // 
@@ -276,7 +277,7 @@
             // 
             this.btnUndo.Caption = "Quay lại";
             this.btnUndo.Id = 4;
-            this.btnUndo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
+            this.btnUndo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUndo.ImageOptions.Image")));
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUndo_ItemClick);
             // 
@@ -284,7 +285,7 @@
             // 
             this.btnRefresh.Caption = "Làm mới";
             this.btnRefresh.Id = 5;
-            this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
+            this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.Image")));
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
             // 
@@ -292,7 +293,7 @@
             // 
             this.btnExit.Caption = "Thoát";
             this.btnExit.Id = 6;
-            this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.ImageOptions.Image")));
+            this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.Image")));
             this.btnExit.Name = "btnExit";
             this.btnExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExit_ItemClick);
             // 
@@ -358,7 +359,7 @@
             this.txtSLT.Name = "txtSLT";
             this.txtSLT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtSLT.Size = new System.Drawing.Size(100, 20);
+            this.txtSLT.Size = new System.Drawing.Size(124, 20);
             this.txtSLT.TabIndex = 7;
             // 
             // txtDVT
@@ -367,7 +368,7 @@
             this.txtDVT.Location = new System.Drawing.Point(91, 81);
             this.txtDVT.MenuManager = this.barManager1;
             this.txtDVT.Name = "txtDVT";
-            this.txtDVT.Size = new System.Drawing.Size(100, 20);
+            this.txtDVT.Size = new System.Drawing.Size(124, 20);
             this.txtDVT.TabIndex = 5;
             // 
             // txtTenVT
@@ -376,7 +377,7 @@
             this.txtTenVT.Location = new System.Drawing.Point(91, 55);
             this.txtTenVT.MenuManager = this.barManager1;
             this.txtTenVT.Name = "txtTenVT";
-            this.txtTenVT.Size = new System.Drawing.Size(100, 20);
+            this.txtTenVT.Size = new System.Drawing.Size(124, 20);
             this.txtTenVT.TabIndex = 3;
             // 
             // txtMaVT
@@ -385,7 +386,7 @@
             this.txtMaVT.Location = new System.Drawing.Point(91, 29);
             this.txtMaVT.MenuManager = this.barManager1;
             this.txtMaVT.Name = "txtMaVT";
-            this.txtMaVT.Size = new System.Drawing.Size(100, 20);
+            this.txtMaVT.Size = new System.Drawing.Size(124, 20);
             this.txtMaVT.TabIndex = 1;
             // 
             // vattuTableAdapter

@@ -37,7 +37,6 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.qLVT_DATHANGDataSet_DSPM = new QLVTPT2020.QLVT_DATHANGDataSet_DSPM();
             this.v_DS_PHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.v_DS_PHANMANHTableAdapter = new QLVTPT2020.QLVT_DATHANGDataSet_DSPMTableAdapters.V_DS_PHANMANHTableAdapter();
             this.tableAdapterManager = new QLVTPT2020.QLVT_DATHANGDataSet_DSPMTableAdapters.TableAdapterManager();
             this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.qLVT_DATHANGDataSet_DSPM)).BeginInit();
@@ -82,6 +81,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(150, 136);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(263, 21);
             this.txtPassword.TabIndex = 4;
             // 
@@ -104,10 +104,6 @@
             // 
             this.v_DS_PHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
             this.v_DS_PHANMANHBindingSource.DataSource = this.qLVT_DATHANGDataSet_DSPM;
-            // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
@@ -132,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 273);
+            this.ClientSize = new System.Drawing.Size(508, 241);
             this.Controls.Add(this.cmbChiNhanh);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -141,8 +137,10 @@
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblChiNhanh);
             this.Name = "FormDangNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.FormDangNhap_Load);
+            this.Enter += new System.EventHandler(this.FormDangNhap_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.qLVT_DATHANGDataSet_DSPM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -160,7 +158,6 @@
         private System.Windows.Forms.Button btnLogin;
         private QLVT_DATHANGDataSet_DSPM qLVT_DATHANGDataSet_DSPM;
         private System.Windows.Forms.BindingSource v_DS_PHANMANHBindingSource;
-        private QLVT_DATHANGDataSet_DSPMTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private QLVT_DATHANGDataSet_DSPMTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ComboBox cmbChiNhanh;
     }

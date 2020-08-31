@@ -31,6 +31,7 @@ namespace QLVTPT2020
         private void FormKho_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet_DATA.Kho' table. You can move, or remove it, as needed.
+            this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
             this.khoTableAdapter.Fill(this.ds_QLVT.Kho);
 
             DataTable dt = new DataTable();
@@ -140,7 +141,7 @@ namespace QLVTPT2020
                 else
                 {
                     SqlDataReader myReader;
-                    String strlenh = "DECLARE @return_value int EXEC @return_value = [dbo].[SP_CHECK_MAKHO] @makho = N'" + txtMaKho.Text.Trim() + "' "
+                    String strlenh = "DECLARE @return_value int EXEC @return_value = [dbo].[SP_CHECK_MA_KHO] @MAKHO = N'" + txtMaKho.Text.Trim() + "' "
                         + "SELECT  'Return Value' = @return_value";
                     myReader = Program.ExecSqlDataReader(strlenh);
                     if (myReader == null) return;
