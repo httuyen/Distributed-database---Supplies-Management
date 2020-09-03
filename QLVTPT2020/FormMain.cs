@@ -183,17 +183,5 @@ namespace QLVTPT2020
                 f.Show();
             }
         }
-
-        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Form frm = this.CheckExists(typeof(Form1));
-            if (frm != null) frm.Activate();
-            else
-            {
-                Form1 f = new Form1();
-                f.MdiParent = this;
-                f.Show();
-            }
-        }
     }
 }
