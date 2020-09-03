@@ -172,13 +172,25 @@ namespace QLVTPT2020
             }
         }
 
-        private void btnInBangKe_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnInBK_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form frm = this.CheckExists(typeof(FormInBangKeNX));
+            Form frm = this.CheckExists(typeof(FormInBangKet));
             if (frm != null) frm.Activate();
             else
             {
-                FormInBangKeNX f = new FormInBangKeNX();
+                FormInBangKet f = new FormInBangKet();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(Form1));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Form1 f = new Form1();
                 f.MdiParent = this;
                 f.Show();
             }

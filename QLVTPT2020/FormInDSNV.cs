@@ -21,21 +21,30 @@ namespace QLVTPT2020
         private void FormInDSNV_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet_DATA.SP_IN_DSNV' table. You can move, or remove it, as needed.
+            ds_QLVT.EnforceConstraints = false;
+            this.sP_IN_DSNVTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sP_IN_DSNVTableAdapter.Fill(this.ds_QLVT.SP_IN_DSNV);
             //this.reportViewer1.RefreshReport();
-
+           
             if (Program.mGroup == "CHINHANH")
             {
                 grCN.Enabled = false;
+                btnPrint.Enabled = false;
+                XtraNV xtraNV = new XtraNV();
+                xtraNV.CreateDocument();
+                documentViewer1.DocumentSource = xtraNV;
             }
             else
             {
+                btnPrint.Enabled = true;
                 cmbCN.Enabled = true;
                 cmbCN.DataSource = Program.bds_dspm;
                 cmbCN.DisplayMember = "TENCN";
                 cmbCN.ValueMember = "TENSERVER";
 
             }
+
+           
         }
 
         private void cmbCN_SelectedIndexChanged(object sender, EventArgs e)

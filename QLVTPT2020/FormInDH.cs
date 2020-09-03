@@ -21,14 +21,17 @@ namespace QLVTPT2020
         private void FormInDH_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLVT_DATHANGDataSet_DATA.SP_IN_DSDH_CHUA_CO_PN' table. You can move, or remove it, as needed.
+            qLVT_DATHANGDataSet_DATA.EnforceConstraints = false;
             this.sP_IN_DSDH_CHUA_CO_PNTableAdapter.Fill(this.qLVT_DATHANGDataSet_DATA.SP_IN_DSDH_CHUA_CO_PN);
             if (Program.mGroup == "CHINHANH")
             {
                 cmbCN.Enabled = false;
+                btnPrint.Enabled = false;
             }
             else
             {
                 cmbCN.Enabled = true;
+                btnPrint.Enabled = true;
                 cmbCN.DataSource = Program.bds_dspm;
                 cmbCN.DisplayMember = "TENCN";
                 cmbCN.ValueMember = "TENSERVER";

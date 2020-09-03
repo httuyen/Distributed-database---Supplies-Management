@@ -43,6 +43,7 @@
     <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v17.1.Core" />
     <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Export, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v17.1" />
     <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -83,11 +84,11 @@
     <Compile Include="FormDonDatHang.Designer.cs">
       <DependentUpon>FormDonDatHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormInBangKeNX.cs">
+    <Compile Include="FormInBangKet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormInBangKeNX.Designer.cs">
-      <DependentUpon>FormInBangKeNX.cs</DependentUpon>
+    <Compile Include="FormInBangKet.Designer.cs">
+      <DependentUpon>FormInBangKet.cs</DependentUpon>
     </Compile>
     <Compile Include="FormInDH.cs">
       <SubType>Form</SubType>
@@ -161,6 +162,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLVT_DATHANGDataSet_DSPM.xsd</DependentUpon>
     </Compile>
+    <Compile Include="XtraBKet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraBKet.Designer.cs">
+      <DependentUpon>XtraBKet.cs</DependentUpon>
+    </Compile>
     <Compile Include="XtraDH.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -185,8 +192,8 @@
     <EmbeddedResource Include="FormDonDatHang.resx">
       <DependentUpon>FormDonDatHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormInBangKeNX.resx">
-      <DependentUpon>FormInBangKeNX.cs</DependentUpon>
+    <EmbeddedResource Include="FormInBangKet.resx">
+      <DependentUpon>FormInBangKet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInDH.resx">
       <DependentUpon>FormInDH.cs</DependentUpon>
@@ -228,6 +235,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="XtraBKet.resx">
+      <DependentUpon>XtraBKet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XtraDH.resx">
       <DependentUpon>XtraDH.cs</DependentUpon>
     </EmbeddedResource>
